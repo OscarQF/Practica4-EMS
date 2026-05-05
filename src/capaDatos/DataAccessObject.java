@@ -87,9 +87,11 @@ public class DataAccessObject {
 		Class.forName(DRIVER);
 		connection = DriverManager.getConnection(URL, USER, PASS);
                 connection.setAutoCommit(false);
+
 	} catch (ClassNotFoundException e) {
 		throw new RuntimeException("problemas de driver");
 	} catch (SQLException e) {
+        e.printStackTrace();
 		throw new RuntimeException("Ha ocurrido un error al conectar con la Base de Datos");
 	}
     } // fin del método connect
